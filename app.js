@@ -8,6 +8,7 @@ import morgan from "morgan";
 import connectToDatabase from "./database/mongodb.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import cookieParser from "cookie-parser";
+import workflowRouter from "./routes/workflow.routes.js";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/auth", authrouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/subscription", subscriptionRouter);
+app.use("/api/v1/workflows", workflowRouter);
 
 app.use(errorMiddleware);
 
